@@ -1,0 +1,53 @@
+{
+  "manifest_version": 3,
+  "name": "ShortsBlocker",
+  "version": "1.0.0",
+  "description": "A Chrome extension to block YouTube Shorts",
+  "icons": {
+    "16": "icons/icon.png",
+    "48": "icons/icon.png",
+    "128": "icons/icon.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon.png",
+      "48": "icons/icon.png",
+      "128": "icons/icon.png"
+    }
+  },
+  "permissions": [
+    "storage",
+    "tabs",
+    "declarativeNetRequest"
+  ],
+  "host_permissions": [
+    "https://*.youtube.com/*",
+    "https://*.facebook.com/*",
+    "https://*.instagram.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.youtube.com/*",
+        "https://*.facebook.com/*",
+        "https://*.instagram.com/*"
+      ],
+      "js": ["content.js"],
+      "css": ["shorts-blocker.css"],
+      "run_at": "document_end"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "shorts_redirect_rules",
+        "enabled": false,
+        "path": "rules.json"
+      }
+    ]
+  }
+}

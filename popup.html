@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShortsBlocker</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div id="mainView" class="container">
+    <div class="header">
+      <h1>ShortsBlocker</h1>
+      <div class="header-buttons">
+        <button id="themeToggleBtn" class="icon-btn theme-toggle-btn" title="Toggle theme" aria-label="Toggle theme">
+          <!-- Icon injected by script -->
+        </button>
+        <button id="settingsBtn" class="icon-btn settings-btn" title="Settings" aria-label="Settings">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09A1.65 1.65 0 0 0 15 4.6a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9c.63 0 1.2.39 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1Z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <!-- Initially hidden to avoid flicker; revealed after state load -->
+    <div class="main-switch hidden" id="switchView">
+      <div class="switch-container">
+        <input type="checkbox" id="mainToggle" class="main-toggle">
+        <label for="mainToggle" class="switch-label"></label>
+      </div>
+      <p id="statusText" class="status-text">Extension is OFF</p>
+    </div>
+
+    <div class="coffee-card hidden" id="coffeeView">
+      <div class="coffee-icon">☕</div>
+      <h2>Buy Me a Coffee</h2>
+      <p class="coffee-subtitle">Enjoying the extension? Support the developer!</p>
+      <div class="donate-links">
+        <a href="#" id="paypalLink" class="donate-btn" target="_blank">
+          <span class="btn-icon">💳</span>
+          <span>PayPal</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div id="settingsView" class="container hidden">
+    <div class="header">
+      <button id="backBtn" class="icon-btn back-btn" title="Back" aria-label="Back">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
+      </button>
+      <h1>Settings</h1>
+    </div>
+    <div class="settings-list">
+      <div class="setting-item main-setting">
+        <label for="mainSettingToggle">Enable Extension</label>
+        <input type="checkbox" id="mainSettingToggle" class="toggle">
+      </div>
+      <div class="settings-divider"></div>
+      <div class="setting-item">
+        <label for="youtubeToggle">YouTube</label>
+        <input type="checkbox" id="youtubeToggle" class="toggle">
+      </div>
+      <div class="setting-item">
+        <label for="facebookToggle">Facebook</label>
+        <input type="checkbox" id="facebookToggle" class="toggle">
+      </div>
+      <div class="setting-item">
+        <label for="instagramToggle">Instagram</label>
+        <input type="checkbox" id="instagramToggle" class="toggle">
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+/* Shorts Blocker CSS - Consolidated Rules */
+
+/* Core Shorts elements */
+html[shorts_blocker_enabled="true"][block_yt_shorts="true"] ytd-reel-shelf-renderer,
+html[shorts_blocker_enabled="true"][block_yt_shorts="true"] ytm-reel-shelf-renderer,
+html[shorts_blocker_enabled="true"][block_yt_shorts="true"] ytd-rich-shelf-renderer[is-shorts],
+html[shorts_blocker_enabled="true"][block_yt_shorts="true"] ytd-rich-section-renderer:has(ytd-rich-shelf-renderer[is-shorts]),
+html[shorts_blocker_enabled="true"][block_yt_shorts="true"] .ytGridShelfViewModelHost:has(.shortsLockupViewModelHost) {
+  display: none !important;
+}
+
+/* Shorts sidebar button */
+html[shorts_blocker_enabled="true"][block_yt_shorts="true"] .yt-simple-endpoint[title="Shorts"]
+{
+  display: none !important;
+}
+
+/* Shorts videos with overlay indicator */
+html[shorts_blocker_enabled="true"][block_yt_shorts="true"] ytd-grid-video-renderer[overlay-style="SHORTS"],
+html[shorts_blocker_enabled="true"][block_yt_shorts="true"] ytd-rich-item-renderer[overlay-style="SHORTS"],
+html[shorts_blocker_enabled="true"][block_yt_shorts="true"] ytd-video-renderer[overlay-style="SHORTS"],
+html[shorts_blocker_enabled="true"][block_yt_shorts="true"] ytd-video-renderer:has(a[href*="/shorts/"]) {
+  display: none !important;
+}
+
+/* Shorts tab on channel pages */
+html[shorts_blocker_enabled="true"][block_yt_shorts="true"] yt-tab-shape[role="tab"][tab-title="Shorts"] {
+  display: none !important;
+}
+
+/* Shorts filter chip - Target the second chip in filter bar */
+html[shorts_blocker_enabled="true"][block_yt_shorts="true"] yt-chip-cloud-renderer yt-chip-cloud-chip-renderer:nth-child(2) {
+  display: none !important;
+}
+
+/* Mobile Shorts button */
+html[shorts_blocker_enabled="true"][block_yt_shorts="true"] ytm-pivot-bar-item-renderer[tab-identifier="FEshorts"] {
+  display: none !important;
+}
+
+/* Facebook Shorts - Hide second li in navigation */
+html[shorts_blocker_enabled="true"][block_fb_shorts="true"] div[aria-label="Facebook"][role="navigation"] ul li:nth-child(2) {
+  display: none !important;
+}
+
+/* Facebook Shortcuts - Hide 7th li in navigation */
+html[shorts_blocker_enabled="true"][block_fb_shorts="true"] div[aria-label="Shortcuts"][role="navigation"] ul li:nth-child(7) {
+  display: none !important;
+}
