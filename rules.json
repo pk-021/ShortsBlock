@@ -5,39 +5,11 @@
     "action": {
       "type": "redirect",
       "redirect": {
-        "url": "https://www.youtube.com"
+        "regexSubstitution": "https://www.youtube.com/watch?v=\\1"
       }
     },
     "condition": {
-      "urlFilter": "||youtube.com/shorts/*",
-      "resourceTypes": ["main_frame"]
-    }
-  },
-  {
-    "id": 2,
-    "priority": 1,
-    "action": {
-      "type": "redirect",
-      "redirect": {
-        "url": "https://www.facebook.com"
-      }
-    },
-    "condition": {
-      "urlFilter": "||facebook.com/reel/*",
-      "resourceTypes": ["main_frame"]
-    }
-  },
-  {
-    "id": 3,
-    "priority": 1,
-    "action": {
-      "type": "redirect",
-      "redirect": {
-        "url": "https://www.facebook.com"
-      }
-    },
-    "condition": {
-      "urlFilter": "||facebook.com/reels/*",
+      "regexFilter": "^https://www\\.youtube\\.com/shorts/([^/?]+)",
       "resourceTypes": ["main_frame"]
     }
   }

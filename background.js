@@ -2,12 +2,11 @@
 
 // Update redirect rules based on settings
 function updateRedirectRules() {
-  chrome.storage.sync.get(['enabled', 'youtube', 'facebook'], (result) => {
+  chrome.storage.sync.get(['enabled', 'youtube'], (result) => {
     const enabled = result.enabled ?? false;
     const youtubeBlocking = result.youtube ?? false;
-    const facebookBlocking = result.facebook ?? false;
     
-    if (enabled && (youtubeBlocking || facebookBlocking)) {
+    if (enabled && youtubeBlocking) {
       // Enable the redirect rule
       chrome.declarativeNetRequest.updateEnabledRulesets({
         enableRulesetIds: ['shorts_redirect_rules']
@@ -36,7 +35,7 @@ chrome.runtime.onInstalled.addListener(() => {
 
 // Listen for storage changes to update redirect rules
 chrome.storage.onChanged.addListener((changes, namespace) => {
-  if (namespace === 'sync' && (changes.enabled || changes.youtube || changes.facebook)) {
+  if (namespace === 'sync' && (changes.enabled || changes.youtube)) {
     updateRedirectRules();
   }
 });
